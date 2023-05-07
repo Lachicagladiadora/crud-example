@@ -1,0 +1,35 @@
+
+GET http://localhost:3000/user/21
+
+###
+
+POST http://localhost:3000/user
+content-type: application/json
+
+{
+    "user": {
+        "name":"juan",
+        "age":"20",
+        "email":"juan2000@gmail.com"
+    }
+}
+
+###
+
+PUT http://localhost:3000/user/27
+content-type: application/json
+
+{
+    "user": {
+        "name":"juancito",
+        "age":"20",
+        "email":"juan2000@gmail.com"
+    }
+}
+
+### 
+
+DELETE  http://localhost:3000/user/27
+content-type: application/json
+
+
