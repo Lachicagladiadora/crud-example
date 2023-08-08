@@ -1,9 +1,9 @@
 
-GET http://localhost:3000/user/21
+GET http://localhost:3000/users/21
 
 ###
 
-POST http://localhost:3000/user
+POST http://localhost:3000/users
 content-type: application/json
 
 {
@@ -16,7 +16,7 @@ content-type: application/json
 
 ###
 
-PUT http://localhost:3000/user/27
+PUT http://localhost:3000/users/27
 content-type: application/json
 
 {
