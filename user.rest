@@ -2,15 +2,19 @@
 GET http://localhost:3000/users/21
 
 ###
+GET http://localhost:3000/users
+
+###
 
 POST http://localhost:3000/users
 content-type: application/json
 
 {
     "user": {
-        "name":"juan",
-        "age":"20",
-        "email":"juan2000@gmail.com"
+        "id": "27",
+        "name":"roberto",
+        "age":"28",
+        "email":"roberto5896@gmail.com"
     }
 }
 
@@ -21,9 +25,10 @@ content-type: application/json
 
 {
     "user": {
+        "id": "1",
         "name":"juancito",
-        "age":"20",
-        "email":"juan2000@gmail.com"
+        "age":"89",
+        "email":"jh2340@gmail.com"
     }
 }
 
