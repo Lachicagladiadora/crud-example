@@ -22,11 +22,13 @@ const users = [
   {id: '9', name: 'Cora', age: '78', email: 'Valentina240@outlook.com'},
   {id: '10', name: 'Harper', age: '25', email: 'brooklyn@outlook.com'},
 ]
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 // todo: update endpoint users variables
 // get user by id
+
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id
     const foundUser = users.find((c)=>c.id===userId)
