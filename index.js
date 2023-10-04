@@ -42,6 +42,7 @@ app.get('/users', (req, res) => {
 
 app.post('/users', (req, res) => {
     const newUser = req.body.user;
+    if(!newUser)return res.status(403).json({error: 'cannot find user'})
     // TODO: create user on DB
     console.log('1', req.body)
     console.log('2', newUser)
