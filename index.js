@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const users = [
+let users = [
   { id: '1', name: "juan", age: "20", email: "juan2000@gmail.com" },
   { id: '2', name: "maria", age: "24", email: "maria2032@gmail.com" },
   { id: '3', name: 'Harper', age: '18', email: 'Charlotte107@hotmail.com' },
@@ -37,7 +37,7 @@ app.get('/users/:id', (req, res) => {
 
 app.get('/users', (req, res) => {
   // TODO: get user from DB
-  console.log({ users })
+  // console.log({ users })
   res.json(users)
 })
 
@@ -45,7 +45,7 @@ app.post('/users', (req, res) => {
   const userInput = req.body.user;
   if (!userInput) return res.status(403).json({ error: 'cannot find user' })
   // TODO: create user on DB
-  const newUser = { id: `${Math.round(Math.random() * 1000)}`, ...userInput }
+  const newUser = { ...userInput,id: `${Math.round(Math.random() * 1000)}` }
   users.push(newUser)
   res.json(newUser)
 })
@@ -54,12 +54,31 @@ app.put('/users/:id', (req, res) => {
   const userId = req.params.id
   const updateUser = req.body.user;
   // TODO: update user on DB
+  // console.log({updateUser})
+  const updatedUsers = users.map((c)=>{
+    // console.log({c, updateUser, userId})
+    if(c.id === userId){ 
+      // console.log('sdf')
+      const newUser = {...c,...updateUser}
+        return(newUser)
+    } 
+    else return ({...c})
+  })
+  // console.log({updatedUsers})
+  users = updatedUsers
+  // console.log({users})
   res.json({ id: userId, ...updateUser })
 })
 
 app.delete('/users/:id', (req, res) => {
   const userId = req.params.id
   // TODO: update user on DB
+  console.log({userId})
+  const updatedUsers = users.filter((c)=>{
+   return  c.id !== userId 
+  })
+  console.log({updatedUsers})
+  users = updatedUsers
   // {data,state,message}
   res.status(200).json({ success: true, message: `user with ${userId} was removed` })
 })
